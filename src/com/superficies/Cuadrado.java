@@ -7,15 +7,17 @@
 package com.superficies;
 
 
-public class Cuadrado {
+public class Cuadrado implements Superficie{
    private int lado; 
 
     public Cuadrado() {
     }
 
-    public Cuadrado(int lado) {
+    public Cuadrado(int lado)throws LadoNegativoException{
+        if(lado<0)throw new LadoNegativoException();
         this.lado = lado;
     }
+
 
     public int getLado() {
         return lado;
@@ -24,5 +26,12 @@ public class Cuadrado {
     public void setLado(int lado) {
         this.lado = lado;
     }
+    
+    public float calcularArea() { 
+   float area=lado*lado; 
+   return area; 
+     } 
+
+    
 }
 

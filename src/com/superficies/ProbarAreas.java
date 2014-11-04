@@ -17,11 +17,14 @@ public class ProbarAreas {
      */
     public static void main(String[] args) {
         // Primero creamo un cuadrado
-        Cuadrado d=new Cuadrado();
-                 d.setLado(5);
-        //el siguiente objeto es el area
-                 Area a=new Area(d);
-                 System.out.println(a.calcular());
+        try{ 
+         Area a=new Area(new Cuadrado(-4)); 
+         System.out.println(a.calcular()); 
+          
+         System.out.println("Si se lanza la excepcion nunca veras esta linea"); 
+          }catch(Exception  e){ 
+              System.out.println(e.getMessage()); 
+          } 
+
     }
-    
 }

@@ -11,22 +11,16 @@ package com.superficies;
  * @author T
  */
 public class Area {
-     private Cuadrado c;
+     Superficie c; 
+ 
+ 
+     public Area(Superficie c) { 
+         this.c = c; 
+     } 
+     public float calcular(){ 
+        float area=c.calcularArea(); 
+        return area; 
+     } 
 
-    public Area(Cuadrado c) {
-        this.c = c;
-    }
-
-    public Cuadrado getC() {
-        return c;
-    }
-
-    public void setC(Cuadrado c) {
-        this.c = c;
-    }
-    public int calcular(){
-        int area=c.getLado()*c.getLado();
-        return area;
-    }
      
 }
