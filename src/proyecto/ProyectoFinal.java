@@ -14,8 +14,32 @@ public class ProyectoFinal extends javax.swing.JFrame {
     /**
      * Creates new form ProyectoFinal
      */
+    Galeria g;
     public ProyectoFinal() {
+        g=new Galeria();
         initComponents();
+        Thread t1=new Thread(new Runnable(){
+            
+            public void run(){
+                int i=0;
+                  
+              while(true){
+                  if(i>=5)i=0;
+                  jLabel2.setText(g.leerTodas().get(i).getTitulo());
+                  jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource(g.leerTodas().get(i).getUrl())));
+                  jTextArea1.setText(g.leerTodas().get(i).getDescripcion());
+                  try {
+                      Thread.sleep(2000);
+                  } catch (InterruptedException ex) {         
+                  }
+                
+                  i++;
+              }
+            }
+            
+        });
+        t1.start();
+        
     }
 
     /**
@@ -77,15 +101,11 @@ public class ProyectoFinal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 789, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 381, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
