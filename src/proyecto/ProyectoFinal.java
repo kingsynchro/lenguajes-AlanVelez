@@ -6,11 +6,15 @@
 package proyecto;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import sun.misc.IOUtils;
 
 /**
  *
@@ -64,6 +68,7 @@ public class ProyectoFinal extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,6 +89,13 @@ public class ProyectoFinal extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("agregar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -100,7 +112,9 @@ public class ProyectoFinal extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addComponent(jButton1)))
+                        .addComponent(jButton1)
+                        .addGap(46, 46, 46)
+                        .addComponent(jButton2)))
                 .addContainerGap(86, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -113,7 +127,9 @@ public class ProyectoFinal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
@@ -140,7 +156,41 @@ public class ProyectoFinal extends javax.swing.JFrame {
         File f=   choser.getSelectedFile();
        
        
+        /** try{
+        JFileChooser choser=new JFileChooser();
+        choser.showOpenDialog(this);
+    File file=    choser.getSelectedFile();
+    String nombre=file.getName();
+    InputStream in=new FileInputStream(file);
+        byte[] datosImagen;
+             datosImagen = IOUtils.toByteArray(in);
+    Imagen ima=new Imagen(datosImagen,nombre);
+    PersistenciaImagen.guardarImagen(ima);
+        }catch(Exception e){}
+     */
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+     /* try{
+        JFileChooser choser=new JFileChooser();
+        choser.showOpenDialog(this);
+    File file=    choser.getSelectedFile();
+    String nombre=file.getName();
+    InputStream in=new FileInputStream(file);
+   byte[] datosImagen = IOUtils.toByteArray(in);
+         
+    Imagen im=new Imagen(datosImagen,nombre);
+    PersistenciaImagen.guardarIm(im);
+    System.out.println("Imagen guardada");
+    ImageIcon imageIcon = new ImageIcon(im.getDatosImage());
+ imagenShow.setIcon(imageIcon);
+        }catch(Exception e){}
+ */   
+      
+                                         
+
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,6 +229,7 @@ public class ProyectoFinal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
