@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -30,15 +31,24 @@ public class ProyectoFinal extends javax.swing.JFrame {
         g=new Galeria();
         initComponents();
         Thread t1=new Thread(new Runnable(){
-            
-            public void run(){
+
+            @Override
+        
+            public void run() {
                 int i=0;
                   
               while(true){
-                  if(i>=5)i=0;
+                  if(i>=g.leerTodas().size())i=0;
+                  
                   jLabel2.setText(g.leerTodas().get(i).getTitulo());
-                  jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource(g.leerTodas().get(i).getUrl())));
-                  jTextArea1.setText(g.leerTodas().get(i).getDescripcion());
+                  System.out.println(g.leerTodas().get(i).getUrl());
+                  ImageIcon icon = new ImageIcon( g.leerTodas().get(i).getUrl());
+                  jLabel1.setIcon(icon);
+                  //jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource(g.leerTodas().get(i).getUrl())));
+                  
+//jLabel2.setIcon(new javax.swing.ImageIcon("F:\\DM DW\\a.png"));
+                  //jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource(g.LeerTodas().get(i).getUrl())));
+                jTextArea1.setText(g.leerTodas().get(i).getDescripcion());
                   try {
                       Thread.sleep(2000);
                   } catch (InterruptedException ex) {         
@@ -50,7 +60,6 @@ public class ProyectoFinal extends javax.swing.JFrame {
             
         });
         t1.start();
-        
     }
 
     /**
@@ -149,13 +158,34 @@ public class ProyectoFinal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        FileOutputStream fos=null;
+      
+     FileOutputStream fos=null;
+        
+            // TODO add your handling code here:
+            JFileChooser choser=new JFileChooser();
+           choser.showOpenDialog(this);
+            File f=   choser.getSelectedFile();
+            String archivo = f.getAbsolutePath().replace("\\", "\\\\");
+            try {
+                Imagensita img = new Imagensita("titulo",archivo , "descripcion");
+                //System.out.println("img: "+img);
+                
+                ArrayList<Imagensita> lista = g.leerTodas();
+                lista.add(img);
+                g.setImagenes(lista);
+                //System.err.println("lista"+g.LeerTodas());
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        
+        /*  FileOutputStream fos=null;
         
             JFileChooser choser=new JFileChooser();
            choser.showOpenDialog(this);
         File f=   choser.getSelectedFile();
        
-       
+       */
+        
         /** try{
         JFileChooser choser=new JFileChooser();
         choser.showOpenDialog(this);
@@ -172,23 +202,21 @@ public class ProyectoFinal extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-     /* try{
-        JFileChooser choser=new JFileChooser();
-        choser.showOpenDialog(this);
-    File file=    choser.getSelectedFile();
-    String nombre=file.getName();
-    InputStream in=new FileInputStream(file);
-   byte[] datosImagen = IOUtils.toByteArray(in);
-         
-    Imagen im=new Imagen(datosImagen,nombre);
-    PersistenciaImagen.guardarIm(im);
-    System.out.println("Imagen guardada");
-    ImageIcon imageIcon = new ImageIcon(im.getDatosImage());
- imagenShow.setIcon(imageIcon);
+        /* try{
+            JFileChooser choser=new JFileChooser();
+            choser.showOpenDialog(this);
+            File file=    choser.getSelectedFile();
+            String nombre=file.getName();
+            InputStream in=new FileInputStream(file);
+            byte[] datosImagen = IOUtils.toByteArray(in);
+
+            Imagen im=new Imagen(datosImagen,nombre);
+            PersistenciaImagen.guardarIm(im);
+            System.out.println("Imagen guardada");
+            ImageIcon imageIcon = new ImageIcon(im.getDatosImage());
+            imagenShow.setIcon(imageIcon);
         }catch(Exception e){}
- */   
-      
-                                         
+        */
 
     }//GEN-LAST:event_jButton2ActionPerformed
 

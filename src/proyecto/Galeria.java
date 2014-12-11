@@ -18,27 +18,27 @@ public class Galeria {
         imagenes=new ArrayList<Imagensita>();
         
         Imagensita i1=new Imagensita();
-        i1.setUrl("/proyecto/a.png");
+        i1.setUrl("C:\\\\Users\\\\Synchro\\\\Documents\\\\lenguajes-AlanVelez\\\\src\\\\proyecto\\\\a.png");
         i1.setTitulo("league of legends");
         i1.setDescripcion("este es la portada del juego");
         
         Imagensita i2=new Imagensita();
-        i2.setUrl("/proyecto/b.png");
+        i2.setUrl("C:\\\\Users\\\\Synchro\\\\Documents\\\\lenguajes-AlanVelez\\\\src\\\\proyecto\\\\b.png");
         i2.setTitulo("mordekaiser");
         i2.setDescripcion(" un top bien op con el early HD");
         
         Imagensita i3=new Imagensita();
-        i3.setUrl("/proyecto/c.png");
+        i3.setUrl("C:\\\\Users\\\\Synchro\\\\Documents\\\\lenguajes-AlanVelez\\\\src\\\\proyecto\\\\c.png");
         i3.setTitulo("5 vs 5");
         i3.setDescripcion("un team bien balanceado");
         
         Imagensita i4=new Imagensita();
-        i4.setUrl("/proyecto/d.png");
+        i4.setUrl("C:\\\\Users\\\\Synchro\\\\Documents\\\\lenguajes-AlanVelez\\\\src\\\\proyecto\\\\d.png");
         i4.setTitulo("ahri");
         i4.setDescripcion(" un mid que da miedoo :o");
         
         Imagensita i5=new Imagensita();
-        i5.setUrl("/proyecto/e.png");
+        i5.setUrl("C:\\\\Users\\\\Synchro\\\\Documents\\\\lenguajes-AlanVelez\\\\src\\\\proyecto\\\\e.png");
         i5.setTitulo("team skt1");
         i5.setDescripcion(" skin´s de los campeones de LOL");
         
